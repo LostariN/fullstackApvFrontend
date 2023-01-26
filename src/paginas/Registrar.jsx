@@ -31,8 +31,9 @@ const Registrar = () => {
         }
         setAlerta({})
 
+
         try {
-            await clienteAxios.post("/veterinarios", { nombre, email, password })
+            const { data } = await clienteAxios.post("/veterinarios", { nombre, email, password })
             setAlerta({
                 msg: "Creado Correctamente, revisa tu email",
                 error: false

@@ -23,9 +23,14 @@ const Login = () => {
             })
             return;
         }
-
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
         try {
-            const { data } = await clienteAxios.post('/veterinarios/login', { email, password })
+            const { data } = await clienteAxios.post('/veterinarios/login', { email, password }, config)
             setAlerta({
                 msg: 'CONECTADO',
                 error: false
